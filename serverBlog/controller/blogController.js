@@ -90,13 +90,13 @@ const updateAblog = async (req, res) => {
     } catch (error) {
         console.log(error)
 
-        return res.send(500).json({ message: " something went wrong while updating, please try again" })
+        return res.status(500).json({ message: " something went wrong while updating, please try again" })
     }
 
     if (!currentBlogToUpdate) {
         return res.status(500).json({ message: 'unable to update' })
     }
-    return res.send(200).json({ currentBlogToUpdate })
+    return res.status(200).json({ currentBlogToUpdate })
 }
 
 
