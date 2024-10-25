@@ -47,37 +47,40 @@ const Home = () => {
 
   return (
     <div className="p-5">
-      <h1 className="text-center "> YOUR BLOGS</h1>
+      {/* <h1 className="text-center "> YOUR BLOGS</h1> */}
       {pending ? (
         <h1>Loading blogs. Please wait.</h1>
       ) : (
-        <div className="grid grid-cols-3 gap-5 p-7 mt-3 mb-4 mr-4 ">
+        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-5 p-7 mt-3 mb-4 mr-4 ">
           {blogList && blogList.length ? (
             blogList.map((blogItem) => {
               return (
                 <div
                   key={blogItem._id}
-                  className="bg-blue-500 min-h-20 min-w-16 gap-3 p-4 flex flex-col justify-center rounded-lg hover:scale-105 duration-150"
+                  className="bg-blue-500  min-h-36 min-w-48 gap-3 p-3 flex flex-col justify-center rounded-lg hover:scale-105 duration-150 shadow-md shadow-blue-200"
                 >
                   <p>{blogItem.title}</p>
                   <p>{blogItem.description}</p>
                   <div className="flex justify-end gap-5">
                     <EditIcon
                       onClick={() => handleEditBlog(blogItem)}
-                      className="  hover:text-black"
+                      className="  hover:text-black cursor-pointer"
                     />
                     <DeleteOutlineIcon
                       onClick={() => handleDeleteBlog(blogItem._id)}
-                      className=" hover:text-black "
+                      className=" hover:text-black cursor-pointer "
                     />
                   </div>
                 </div>
               );
             })
           ) : (
-            <div className=" ">
+            <div
+              className="flex justify-center items-center "
+              style={{ minWidth: "90lvw", minHeight: "60lvh" }}
+            >
               {" "}
-              <h3 className="text-center items-center">No Blogs Added.</h3>
+              <h2 className=" ">No blogs added to display. Write a Blog.</h2>
             </div>
           )}
         </div>

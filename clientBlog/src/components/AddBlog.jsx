@@ -49,7 +49,7 @@ const AddBlog = () => {
   return (
     <div className="p-5 flex flex-col items-center gap-5">
       <h1>{isEdit ? "Edit the Blog" : "Add a Blog"}</h1>
-      <div className="flex flex-col  w-1/3 gap-5 p-1">
+      <div className="flex flex-col  w-1/3 min-w-80 gap-5 p-1">
         {" "}
         <input
           type="text"
@@ -80,7 +80,7 @@ const AddBlog = () => {
         />
         <button
           onClick={handlSaveToDatabase}
-          className="  border-none p-2 bg-slate-400 hover:bg-slate-300  rounded-lg shadow-md shadow-pink-300"
+          className="  border-none p-2 bg-slate-400 hover:bg-slate-300  rounded-lg shadow-md shadow-pink-300 cursor-pointer"
         >
           {isEdit ? "Save" : "Add Blog"}
         </button>
